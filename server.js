@@ -1,12 +1,12 @@
-const http = require('http');
-const port = process.env.PORT || 10000;
+const express = require("express");
+const app = express();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.end('<h1>¡Hola Mundo desde Render!</h1><p>Práctica de Cloud Computing exitosa.</p>');
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hola Mundo");
 });
 
-server.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("Servidor iniciado");
 });
